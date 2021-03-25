@@ -52,3 +52,7 @@ What a lovely holiday, there's nothing funny left to say
 ---------------------------
 Change #1 in feature branch
 ---------------------------
+
+---------------------------
+Change #2 in feature branch
+---------------------------
