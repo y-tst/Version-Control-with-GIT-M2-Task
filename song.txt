@@ -48,3 +48,7 @@ Bom badom
 Save me from drowning in the sea
 Beat me up on the beach
 What a lovely holiday, there's nothing funny left to say
+
+---------------------------
+Change #1 in feature branch
+---------------------------
