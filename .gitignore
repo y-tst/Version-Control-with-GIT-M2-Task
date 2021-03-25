@@ -1,0 +1,9 @@
+*.db
+
+*.log
+!error.log
+
+*.jpg
+
+Target/
+bin/

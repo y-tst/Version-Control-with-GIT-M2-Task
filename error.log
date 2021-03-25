@@ -1,0 +1,177 @@
+Order Total - 152.25$
+Consignemnt in Processing Status (0001)
+Item 1 - 100$
+Tax Item - 2.5$
+Item 2 - 80$
+Tax Item - 4$
+Shipping cost - 15
+Tax shipping - 0.75$
+Teneder (Credit Card) - 152.25$ (Autorized) object in Order Level
+
+
+Hybris sends OrderPlacement xml via IIB (TIBCO) -----> to DOM
+Dom sends OrderShipped xml via IIB (TIBCO) ------> to Hybris
+
+Shipped WH Ontario
+Item 2
+
+Hybris splits Consignemnts
+Order Total - 152.25$
+Consignemnt in Processing Status (0001)
+Item 1 - 50$
+Tax Item - 2.5$
+Teneder (Credit Card) - 52.50$ (Autorized)
+
+Consignment Status ---> Pack ---> (Teneder : 152.25$ - 99.75$ = 52.50$ ) Paid -----> Shipped (0002)
+Item 2 - 80$
+Tax Item - 4$
+Shipping cost - 15
+Tax shipping - 0.75$
+Paid Tender - (Credit Card) - 99.75$ (Charged) object in Consignemnt level
+
+OrderConsignmentPaid xml -----> IIB ----> Tibco ----> CSS / DOM / Auditworks
+
+Dom sends OrderShipped xml via IIB (TIBCO) ------> to Hybris
+
+Shipped WH Ontario
+Item 1
+Consignment Status ---> Pack ---> (Teneder : 52.50$ - 52.50$ = 0$ ) Paid -----> Shipped (0002)
+Consignemnt in Shipped Status (0001)
+Item 1 - 50$
+Tax Item - 2.5$
+Paid Teneder (Credit Card) - 52.50$ (Charged)
+
+
+[INFO] 2021-01-18 19:31:22,240 +0200 [hybrisHTTP35] com.fglsports.payments.ctfs.services.BaseWebService  -
+
+<ns3:initializePaymentRequest xmlns:ns2="http://ctfs.com/esocketTransactIo/" xmlns:ns4="http://persistservice.BRB.ctfs.com/" xmlns:ns3="http://ctfs.com/paymentSvcsIo/">
+    <ns3:requestId>4e18f81e-55a4-4821-948c-0b1b90dc4f7b</ns3:requestId>
+    <ns3:merchantId>FGLONLINEQA2</ns3:merchantId>
+    <ns3:merchantKey>FGLONLINEPW</ns3:merchantKey>
+    <ns3:structuredData>
+        <ns3:entry>
+            <ns3:name>ShippingAddress</ns3:name>
+            <ns3:data>&lt;?xml version="1.0" encoding="UTF-8" standalone="yes"?&gt;&lt;ShippingAddress&gt;&lt;name&gt;Yurii Ytst&lt;/name&gt;&lt;streetAddress&gt;28 Bison Dr&lt;/streetAddress&gt;&lt;city&gt;North York&lt;/city&gt;&lt;province&gt;Ontario&lt;/province&gt;&lt;country&gt;Canada&lt;/country&gt;&lt;postalCode&gt;M2R 2Y2&lt;/postalCode&gt;&lt;/ShippingAddress&gt;</ns3:data>
+        </ns3:entry>
+    </ns3:structuredData>
+    <ns3:browserIPAddress>89.162.139.30</ns3:browserIPAddress>
+    <ns3:paymentType>CTFS</ns3:paymentType>
+    <ns3:language>en</ns3:language>
+    <ns3:transactionType>AUTHORIZATION</ns3:transactionType>
+    <ns3:orderNumber>002874210</ns3:orderNumber>
+    <ns3:transactionAmount>30783</ns3:transactionAmount>
+    <ns3:currencyCode>124</ns3:currencyCode>
+    <ns3:cardReferenceNumbers></ns3:cardReferenceNumbers>
+    <ns3:promptCvd>Y</ns3:promptCvd>
+    <ns3:cardExpiryDates></ns3:cardExpiryDates>
+    <ns3:storeNumber>00494</ns3:storeNumber>
+    <ns3:financingFlag>Y</ns3:financingFlag>
+    <ns3:financingPlan>9001</ns3:financingPlan>
+    <ns3:financingPlanType>def</ns3:financingPlanType>
+    <ns3:financingPlanDescEN>Yes, I want to pay in 12 equal monthly payments regress1</ns3:financingPlanDescEN>
+    <ns3:financingPlanDescFR></ns3:financingPlanDescFR>
+    <ns3:financingPlanMinAmt>1000</ns3:financingPlanMinAmt>
+    <ns3:guestCheckout>N</ns3:guestCheckout>
+    <ns3:streetAddress>28 Bison Dr</ns3:streetAddress>
+    <ns3:city>North York</ns3:city>
+    <ns3:province>Ontario</ns3:province>
+    <ns3:country>Canada</ns3:country>
+    <ns3:postalCode>M2R 2Y2</ns3:postalCode>
+    <ns3:shoppingCart>
+        <ns3:lineItems>
+            <ns3:itemNumber>1</ns3:itemNumber>
+            <ns3:name>COMMON UI PRODUCT OM</ns3:name>
+            <ns3:quantity>1</ns3:quantity>
+            <ns3:unitPrice>10000</ns3:unitPrice>
+            <ns3:taxAmount>0</ns3:taxAmount>
+        </ns3:lineItems>
+        <ns3:lineItems>
+            <ns3:itemNumber>2</ns3:itemNumber>
+            <ns3:name>Bike product OM</ns3:name>
+            <ns3:quantity>1</ns3:quantity>
+            <ns3:unitPrice>15000</ns3:unitPrice>
+            <ns3:taxAmount>0</ns3:taxAmount>
+        </ns3:lineItems>
+        <ns3:lineItems>
+            <ns3:itemNumber>3</ns3:itemNumber>
+            <ns3:name>SC_Reebok_EN_TEST NEW FEED</ns3:name>
+            <ns3:quantity>1</ns3:quantity>
+            <ns3:unitPrice>999</ns3:unitPrice>
+            <ns3:taxAmount>0</ns3:taxAmount>
+        </ns3:lineItems>
+        <ns3:lineItems>
+            <ns3:itemNumber>4</ns3:itemNumber>
+            <ns3:name>Discounts</ns3:name>
+            <ns3:description>Discounts</ns3:description>
+            <ns3:quantity>1</ns3:quantity>
+            <ns3:unitPrice>-1500</ns3:unitPrice>
+            <ns3:taxAmount>0</ns3:taxAmount>
+        </ns3:lineItems>
+        <ns3:totalTaxAmount>3541</ns3:totalTaxAmount>
+        <ns3:shippingAmount>2743</ns3:shippingAmount>
+    </ns3:shoppingCart>
+    <ns3:loyaltyTransactionId>SPC4494999920210118002874210</ns3:loyaltyTransactionId>
+    <ns3:semafoneEnabled>N</ns3:semafoneEnabled>
+</ns3:initializePaymentRequest>
+
+[INFO] 2021-01-18 19:31:23,831 +0200 [hybrisHTTP35] com.fglsports.payments.ctfs.services.BaseWebService  -
+
+<ns3:initializePaymentResponse xmlns:ns2="http://ctfs.com/esocketTransactIo/" xmlns:ns4="http://persistservice.BRB.ctfs.com/" xmlns:ns3="http://ctfs.com/paymentSvcsIo/">
+    <ns3:requestId>4e18f81e-55a4-4821-948c-0b1b90dc4f7b</ns3:requestId>
+    <ns3:passFail>P</ns3:passFail>
+    <ns3:responseCodes>0</ns3:responseCodes>
+    <ns3:hppToken>9E77826B3A3D19611A7411AA9088BE4F455DF1D48D199C0948020CA414666F9A930466F52C9D27B7ECE1A7AEFB3EAB635A4A</ns3:hppToken>
+</ns3:initializePaymentResponse>
+
+[INFO] 2021-01-18 19:32:25,629 +0200 [hybrisHTTP17] com.fglsports.payments.ctfs.services.BaseWebService  -
+
+<ns3:getPaymentDetailsRequest xmlns:ns2="http://ctfs.com/esocketTransactIo/" xmlns:ns4="http://persistservice.BRB.ctfs.com/" xmlns:ns3="http://ctfs.com/paymentSvcsIo/">
+    <ns3:requestId>41875e5c-731a-467a-ad63-49cd8a5593fa</ns3:requestId>
+    <ns3:merchantId>FGLONLINEQA2</ns3:merchantId>
+    <ns3:merchantKey>FGLONLINEPW</ns3:merchantKey>
+    <ns3:hppToken>9E77826B3A3D19611A7411AA9088BE4F455DF1D48D199C0948020CA414666F9A930466F52C9D27B7ECE1A7AEFB3EAB635A4A</ns3:hppToken>
+</ns3:getPaymentDetailsRequest>
+
+[INFO] 2021-01-18 19:32:26,886 +0200 [hybrisHTTP17] com.fglsports.payments.ctfs.services.BaseWebService  -
+
+<ns3:getPaymentDetailsResponse xmlns:ns2="http://ctfs.com/esocketTransactIo/" xmlns:ns4="http://persistservice.BRB.ctfs.com/" xmlns:ns3="http://ctfs.com/paymentSvcsIo/">
+    <ns3:requestId>41875e5c-731a-467a-ad63-49cd8a5593fa</ns3:requestId>
+    <ns3:passFail>P</ns3:passFail>
+    <ns3:responseCodes>0</ns3:responseCodes>
+    <ns3:orderNumber>002874210</ns3:orderNumber>
+    <ns3:storeNumber>04940</ns3:storeNumber>
+    <ns3:transactionType>AUTHORIZATION</ns3:transactionType>
+    <ns3:paymentTenders>
+        <ns3:id>TNe843157ca28248458aacd95985427c8f</ns3:id>
+        <ns3:amount>30783</ns3:amount>
+        <ns3:tenderType>CREDIT</ns3:tenderType>
+        <ns3:orderNumber>002874210</ns3:orderNumber>
+        <ns3:storeNumber>04940</ns3:storeNumber>
+        <ns3:passFail>P</ns3:passFail>
+        <ns3:responseCodes>0</ns3:responseCodes>
+        <ns3:paymentStatus>AUTHORIZED</ns3:paymentStatus>
+        <ns3:authorizationExpiryDate>2021-01-25 00:00:00</ns3:authorizationExpiryDate>
+        <ns3:creditCardDetails>
+            <ns3:cardExpiryDate>3003</ns3:cardExpiryDate>
+            <ns3:cardReferenceNumber>SOQHMVGHBWSSWQRZFXTPADZEFENUQYC</ns3:cardReferenceNumber>
+            <ns3:financingFlag>N</ns3:financingFlag>
+            <ns3:accountNumber>510118xxxxxx0007</ns3:accountNumber>
+            <ns3:isoResponseCode>01</ns3:isoResponseCode>
+            <ns3:monerisResponseCode>027</ns3:monerisResponseCode>
+            <ns3:authorizationNbr>00028400</ns3:authorizationNbr>
+            <ns3:sequenceNbr>0010010011</ns3:sequenceNbr>
+            <ns3:monerisTerminalId>66004909</ns3:monerisTerminalId>
+            <ns3:entryMode>M</ns3:entryMode>
+            <ns3:localTransactionDate>0118</ns3:localTransactionDate>
+            <ns3:localTransactionTime>123224</ns3:localTransactionTime>
+            <ns3:saveCardResult>Y</ns3:saveCardResult>
+            <ns3:securityIndicator>8</ns3:securityIndicator>
+            <ns3:avsResult>Y</ns3:avsResult>
+            <ns3:cvvResult>M</ns3:cvvResult>
+            <ns3:creditCardTypeCode>M</ns3:creditCardTypeCode>
+            <ns3:creditCardType>Mastercard</ns3:creditCardType>
+            <ns3:accountNumberDisplay>************0007</ns3:accountNumberDisplay>
+        </ns3:creditCardDetails>
+        <ns3:loyaltyTenderCode>05</ns3:loyaltyTenderCode>
+    </ns3:paymentTenders>
+</ns3:getPaymentDetailsResponse>
